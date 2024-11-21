@@ -1,0 +1,73 @@
+/*GRUPO 2*/
+/*drop database prova */
+
+create database prova;
+
+use prova;
+
+create table prato (
+	id int not null primary key auto_increment,
+	nome varchar(255) not null,
+	descricao varchar(255),
+	preco int not null
+);
+
+create table cliente (
+	id int not null primary key auto_increment,
+	nome varchar(255) not null,
+	telefone varchar(255) not null,
+	email varchar(255) not null
+);
+
+create table pedido (
+	id int not null primary key auto_increment,
+	cliente_id int not null, 
+	data_pedido date not null,
+	status_pedido varchar(255) not null
+);
+
+/*foreing key(cliente_id) references cliente(id),*/
+
+create table item_pedido (
+	id int not null primary key auto_increment,
+	pedido_id int not null,
+	prato_id int not null,  
+	quantidade varchar(255) not null
+);
+
+create table mesa (
+	id int not null primary key auto_increment,
+	numero varchar(255) not null,
+	capacidade int
+);
+
+insert into prato(nome, descricao, preco) values ("Pizza Margherita", "Pizza com tomate, manjericão e mussarela", "40,00");
+
+
+insert into cliente(nome, telefone, email) values ("João", "123456789","joao@example.com");
+
+insert into pedido(cliente_id, data_pedido, status_pedido) values (1, "2024/11/21", "Aberto");
+
+insert into item_pedido(pedido_id, prato_id, quantidade) values (1, "1", "2");
+
+insert into mesa(numero, capacidade) values("5", 4);
+
+update prato set preco='45,00' where id=1;
+
+update pedido set status_pedido='Concluído' where id=1;
+
+ select * from prato;
+ 
+ select * from cliente where id=1;
+ 
+ select * from pedido where id=1;
+ 
+ select * from prato where preco >= '30,00';
+ 
+ /* itens 18, 19 e 20*/
+ 
+ insert into prato (nome, descricao, preco) values ("Sushi", "Cru", "50,00");
+ 
+ insert into cliente (nome, telefone, email)
+ 
+ select * from prato;
